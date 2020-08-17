@@ -1,0 +1,17 @@
+<div class="banner-index">
+  <div class="container-index-detail">
+    <h1><strong><h1>All our instruments</h1></strong></h1>
+
+  </div>
+</div>
+
+
+<div class="cards">
+   <ul>
+  <% @instruments.each do |instrument| %>
+    <li>
+      <%=instrument.description%>
+    </li>
+  <% end %>
+  </ul>
+</div>
