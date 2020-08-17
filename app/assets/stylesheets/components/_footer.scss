@@ -1,5 +1,5 @@
 .footer {
-  background: #F4F4F4;
+  background: $body-color;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,7 +12,7 @@
   align-items: center;
 }
 .footer-links a {
-  color: black;
+  color: $green;
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
