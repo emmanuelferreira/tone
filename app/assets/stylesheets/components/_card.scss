@@ -1,14 +1,23 @@
+.container {
+  padding: 16px;
+}
+
+h1 {
+  text-align: center;
+}
+
 .card-product {
   overflow: hidden;
-  height: 120px;
   background: #282828;
   background: linear-gradient(
-    rgba(0, 0, 0, 0.8),
-    rgba(0, 0, 0, 0.5)
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.7)
   );
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 4px;
+  margin: 16px;
 }
 
 .card-product img {
@@ -33,5 +42,5 @@
 
 .card-product .card-product-infos {
   padding: 16px;
-  color: black;
+  color: white;
 }
