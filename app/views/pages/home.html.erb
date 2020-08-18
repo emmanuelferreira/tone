@@ -1,17 +1,22 @@
-<div class="banner"> 
+<div class="banner">
   <%= video_tag "banner-home.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "video-bg" %>
   <h1 class="text-center">TONE!</h1>
   <p class="text-center">find the best music tools around you</p>
   <br>
 
 
-  <div class="container-md">
-    <div class="form-group row d-flex justify-content-center">
-      <div class= "col-md-auto">
-        <div class="form-inline">
-          <input type="text" class="form-control search-input" placeholder="Search" name="srch-term" id="srch-term" />
-          <button class="btn btn-success" type="submit">Search</button>
-        </div>
+
+  <div class="form-group row d-flex justify-content-center">
+    <div class= "col-md-auto">
+      <div class="form-inline">
+        <%= form_tag instruments_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find an instrument"
+          %>
+          <%= submit_tag "Search instrument category", class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div>
   </div>
