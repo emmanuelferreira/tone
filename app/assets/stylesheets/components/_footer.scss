@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 72px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
 }
@@ -13,12 +13,13 @@
 }
 .footer-links a {
   color: $green;
-  opacity: 0.15;
+  opacity: 0.4;
   text-decoration: none;
   font-size: 32px;
   padding: 0px 16px;
 }
 .footer-links a:hover {
+  transition: width 2s linear 1s;
   opacity: 1;
 }
 .footer .fa-heart {
