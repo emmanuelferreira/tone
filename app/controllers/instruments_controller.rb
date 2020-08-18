@@ -24,6 +24,7 @@ class InstrumentsController < ApplicationController
   end
 
   def edit
+   
   end
 
   def update
@@ -33,7 +34,6 @@ class InstrumentsController < ApplicationController
       render :edit
     end
   end
-
 
   def destroy
     @garden.destroy
