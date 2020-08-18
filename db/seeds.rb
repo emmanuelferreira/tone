@@ -15,7 +15,7 @@ puts "Creating users..."
   user = User.new(
     username: Faker::Internet.username ,
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: '123456'
   )
   user.save!
 end
