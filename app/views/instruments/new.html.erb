@@ -1,2 +1,10 @@
 <h1>Instruments#new</h1>
 <p>Find me in app/views/instruments/new.html.erb</p>
+
+<%= simple_form_for  @instrument  do |f| %>
+  <%= f.input :category %>
+  <%= f.input :description %>
+  <%= f.input :price_per_day %>
+  <%= f.input :pickup_address %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
