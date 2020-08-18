@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_08_18_112723) do
+=======
+ActiveRecord::Schema.define(version: 2020_08_18_131715) do
+>>>>>>> controllers-creation
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +40,20 @@ ActiveRecord::Schema.define(version: 2020_08_18_112723) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "instrument_id", null: false
+    t.bigint "user_id", null: false
+    t.date "check_in_date"
+    t.date "check_out_date"
+    t.integer "rental_price_total"
+    t.integer "rental_fees"
+    t.integer "transfer_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["instrument_id"], name: "index_bookings_on_instrument_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
   create_table "instruments", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "pickup_address"
@@ -46,6 +64,15 @@ ActiveRecord::Schema.define(version: 2020_08_18_112723) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
     t.index ["user_id"], name: "index_instruments_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,5 +89,8 @@ ActiveRecord::Schema.define(version: 2020_08_18_112723) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "instruments"
+  add_foreign_key "bookings", "users"
   add_foreign_key "instruments", "users"
+  add_foreign_key "reviews", "bookings"
 end
