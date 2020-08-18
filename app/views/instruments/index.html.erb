@@ -1,19 +1,20 @@
-<div class="banner-index">
+<body class="index if action_name == 'index'">
+
+<div class="container">
   <div class="container-index-detail">
     <h1><strong><h1>Instruments nearby</h1></strong></h1>
   </div>
-</div>
-
-<div class="cards">
-  <% @instruments.each do |instrument| %>
-      <%= instrument.category %>
-      <%= instrument.description %>
-      <div class="card-instrument">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-instrument-infos">
-          <h2>instrument.category</h2>
-          <p>instrument.description</p>
+  
+  <div class="row">
+      <% @instruments.each do |instrument| %>
+      <div class="card-product" style="width: 24rem;">
+        <img class="card-img-top" src="https://images.pexels.com/photos/2049414/pexels-photo-2049414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+        <div class="card-body">
+          <h2 class="card-title"><%= instrument.category %></h2>
+          <p class="card-text"><%= instrument.description %></p>
+          <p class="btn btn-succes"><%= link_to instrument.title, instrument_path(instrument) %></p>
         </div>
       </div>
-  <% end %>
+      <% end %>
+  </div>
 </div>
