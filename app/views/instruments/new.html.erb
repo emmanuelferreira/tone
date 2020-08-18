@@ -1,10 +1,30 @@
-<h1>Instruments#new</h1>
-<p>Find me in app/views/instruments/new.html.erb</p>
 
-<%= simple_form_for  @instrument  do |f| %>
-  <%= f.input :category %>
-  <%= f.input :description %>
-  <%= f.input :price_per_day %>
-  <%= f.input :pickup_address %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
+<div class="container card-body">
+  <div class="login-card p-3 shadow-lg rounded">
+    <div class="pt-3">
+      <h2>Instrument</h2>
+        <%= simple_form_for  @instrument  do |f| %>
+      <div class="form-group">
+        <div class="mt-5">
+          <div class="form-group">
+            <%= f.input :category %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.input :description %>
+        </div>
+        <div class="form-group">
+          <%= f.input :price_per_day %>
+        </div>
+        <div class="form-group">
+          <%= f.input :pickup_address %>
+        </div>
+        <div><%#= f.input :photo, as: :file %>
+        </div>
+        <div class="mt-5">
+           <%= f.submit "Submit review", class:"btn btn-success btn-sm col" %>
+        </div>
+          <% end %>  
+    </div>
+  </div>
+</div>
