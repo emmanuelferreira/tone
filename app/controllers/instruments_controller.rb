@@ -4,13 +4,20 @@ class InstrumentsController < ApplicationController
     @instruments = Instrument.all
   end
 
+  def show
+    authorize @instrument
+  end
+
   def new
-    @instrument = Instrument.new()
+    @instrument = Instrument.new
+    authorize @instrument
   end
 
   def create
     @instrument = Instrument.new(instrument_params)
-    @instrument.user_id = params(:user_id)
+    @instrument.user = current_user
+    authorize @instrument
+
     if @instrument.save!
       redirect_to instrument_path(@instrument)
     else
@@ -24,8 +31,7 @@ class InstrumentsController < ApplicationController
   def update
   end
 
-  def show
-  end
+
 
   def destroy
   end
