@@ -47,6 +47,6 @@ class InstrumentsController < ApplicationController
   end
 
   def instrument_params
-    params.require(:instrument).permit(:description, :pickup_address, :category, :price_per_day, :user_id)
+    params.require(:instrument).permit(:description, :pickup_address, :category, :price_per_day, :user_id) #:photo need to be add 
   end
 end
