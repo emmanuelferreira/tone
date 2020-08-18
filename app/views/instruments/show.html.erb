@@ -1,2 +1,16 @@
 <h1>Instruments#show</h1>
 <p>Find me in app/views/instruments/show.html.erb</p>
+
+<div class="container">
+  <div class="card">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1><%= @instrument.name %></h1>
+      <div class="img">
+        <% if @instrument.photo.attached? %>
+          <%= cl_image_tag @instrument.photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
+      </div>
+      <%= link_to 'Back', instruments_path %>
+    </div>
+  </div>
+</div>  
