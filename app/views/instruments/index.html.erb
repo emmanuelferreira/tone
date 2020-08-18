@@ -1,17 +1,19 @@
 <div class="banner-index">
   <div class="container-index-detail">
-    <h1><strong><h1>All our instruments</h1></strong></h1>
-
+    <h1><strong><h1>Instruments nearby</h1></strong></h1>
   </div>
 </div>
 
-
 <div class="cards">
-   <ul>
   <% @instruments.each do |instrument| %>
-    <li>
-      <%=instrument.description%>
-    </li>
+      <%= instrument.category %>
+      <%= instrument.description %>
+      <div class="card-instrument">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-instrument-infos">
+          <h2>instrument.category</h2>
+          <p>instrument.description</p>
+        </div>
+      </div>
   <% end %>
-  </ul>
 </div>
