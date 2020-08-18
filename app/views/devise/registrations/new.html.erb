@@ -1,11 +1,13 @@
-<div class="container">
-  <div class="login-card p-3 shadow-lg rounded">
-    <div class="pt-3">
-      <h2>Sign up</h2>
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="container d-flex justify-content-center">
+  <div class="login-card row w-50 p-4">
+    <div class="col-md-6 mx-auto">
+      <div class="card-header">
+        <h2>Sign up</h2>
+      </div>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
       <div class="form-group">
-        <div class="mt-5">
+        <div class="mt-1">
           <div class="form-group">
             <%= f.input :email,
                     required: false,
@@ -26,7 +28,7 @@
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
         <div class="mt-5">
-          <div class="btn btn-sm btn-light col">
+          <div class="btn btn-sm btn-primary col">
             <%= f.button :submit, "Sign up" %>
           </div>
         </div>
@@ -39,5 +41,8 @@
       </div>
     </div>
   </div>
+
+  
 </div>
+
 

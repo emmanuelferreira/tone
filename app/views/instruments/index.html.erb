@@ -5,10 +5,10 @@
     <h1><strong><h1>Instruments nearby</h1></strong></h1>
   </div>
   
-  <div class="card-deck">
+  <div class="container">
     <div class="row">
       <% @instruments.each do |instrument| %>
-      <div class="card-product" style="width: 24rem;">
+      <div class="card-product w-100">
         <img class="card-img-top" src="https://images.pexels.com/photos/2049414/pexels-photo-2049414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
         <div class="card-body">
           <h2 class="card-title"><%= instrument.category %></h2>
