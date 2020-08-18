@@ -4,13 +4,17 @@
   </div>
 </div>
 
-<div class="cards">
+
+
+
+
+<div class="container">
   <% @instruments.each do |instrument| %>
       <%= instrument.category %>
       <%= instrument.description %>
-      <div class="card-instrument">
+      <div class="card-product">
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-instrument-infos">
+        <div class="card-product-infos">
           <h2>instrument.category</h2>
           <p>instrument.description</p>
         </div>
