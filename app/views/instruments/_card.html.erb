@@ -1,0 +1,16 @@
+<div class="card-trip">
+  <% image_tag "piano.jpg" %>
+  <div class="card-trip-infos">
+    <div>
+      <h2>
+        <%= instrument.category %>
+      </h2>
+      <p>
+        <%= instrument.description %>
+      </p>
+    </div>
+    <h2 class="card-trip-pricing">99.99CH</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    <%= link_to "+", instrument_path(instrument), method: :delete, data: { confirm: "sure?"}, class: "card-remove-link" %>
+  </div>
+</div>

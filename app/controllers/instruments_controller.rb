@@ -1,12 +1,19 @@
 class InstrumentsController < ApplicationController
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @instruments = Instrument.all
+    if params[:query].present?
+      @instruments = Instrument.where("category ILIKE ?", "%#{params[:query]}%")
+      if @instruments.count == 0
+        @instruments = Instrument.all
+      end
+    else
+      @instruments = Instrument.all
+    end
   end
 
   def show
-
   end
 
   def new
@@ -24,7 +31,6 @@ class InstrumentsController < ApplicationController
   end
 
   def edit
-   
   end
 
   def update
