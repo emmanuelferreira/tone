@@ -1,10 +1,39 @@
-<%= render 'shared/navbar', instrument: @instrument %>
-
-<div class="title">
-  <div>
-    <div class="title-infos"><%= @instrument.title %></div>
-    <div class="title-infos"><%= @instrument.rating %></div>
-    <div class="title-infos"><%= @instrument.price_per_day %></div>
+<div class="container">
+  <div class="title-box">
+    <div class="title-instrument">
+      <h1><%= @instrument.title %></h1>
+    </div>
+    <div class="d-flex justify-content-between">
+      <p><%= @instrument.pickup_address %></p>
+      <p><%= @instrument.price_per_day %> CH</p>
+    </div>
   </div>
+
+  <div id="carouselExampleFade" class="carousel slide carousel-fade carousel-inner" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+         <%= image_tag "piano1.jpg", class: "d-block w-100" %>
+      </div>
+      <div class="carousel-item">
+         <%= image_tag "piano2.jpg", class: "d-block w-100" %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "piano3.jpg", class: "d-block w-100" %>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <div align-item-center>
+    <h1>Description</h1>
+    <p><%= @instrument.description %></p>
+  </div>
+
 </div>
 
