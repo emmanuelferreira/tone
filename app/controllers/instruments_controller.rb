@@ -1,6 +1,7 @@
 class InstrumentsController < ApplicationController
-  before_action :set_instrument, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:show, :index]
+  before_action :set_instrument, only: [:show, :edit, :update, :destroy]
+ 
 
   def index
     if params[:query].present?
@@ -42,8 +43,8 @@ class InstrumentsController < ApplicationController
   end
 
   def destroy
-    @garden.destroy
-    redirect_to instruments_path, notice: 'Instrument was successfully destroyed.'
+    @instrument.destroy
+    redirect_to instruments_path, notice: 'Instrument was successfully deleted.'
   end
 
   private
@@ -53,6 +54,6 @@ class InstrumentsController < ApplicationController
   end
 
   def instrument_params
-    params.require(:instrument).permit(:description, :pickup_address, :category, :price_per_day, :user_id)
+    params.require(:instrument).permit(:description, :pickup_address, :category, :price_per_day, :user_id) #:photo need to be add 
   end
 end
