@@ -1,2 +1,9 @@
-<h1>Instruments#show</h1>
-<p>Find me in app/views/instruments/show.html.erb</p>
+<%= render 'shared/navbar', instrument: @instrument %>
+
+<div class="title">
+  <div>
+    <div class="title-infos"><%= @instrument.title %></div>
+    <div class="title-infos"><%= @instrument.rating %></div>
+    <div class="title-infos"><%= @instrument.price_per_day %></div>
+  </div>
+</div>
