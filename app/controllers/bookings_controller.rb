@@ -14,7 +14,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = @user
     @booking.instrument = @instrument
-
     if @booking.save!
       redirect_to booking_path(@booking)
     else
@@ -23,6 +22,8 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking.destroy
+    redirect_to instruments_path, notice: 'Booking was successfully canceled.'
   end
 
   private

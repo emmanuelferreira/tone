@@ -42,8 +42,8 @@ class InstrumentsController < ApplicationController
   end
 
   def destroy
-    @garden.destroy
-    redirect_to instruments_path, notice: 'Instrument was successfully destroyed.'
+    @instrument.destroy
+    redirect_to instruments_path, notice: 'Instrument was successfully deleted.'
   end
 
   private

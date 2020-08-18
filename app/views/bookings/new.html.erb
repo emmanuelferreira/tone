@@ -1,2 +1,7 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<h1>New rental request</h1>
+
+<%= simple_form_for  @booking do |f| %>
+  <%= f.input :check_in_date %>
+  <%= f.input :check_out_date %>
+  <%= f.submit "Submit request", class: "btn btn-success" %>
+<% end %>

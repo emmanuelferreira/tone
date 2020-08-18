@@ -7,5 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :instruments, dependent: :destroy
-  has_many :bookings, through: :instruments
+  has_many :bookings
 end
