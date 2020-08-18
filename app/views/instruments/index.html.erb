@@ -12,6 +12,7 @@
         <div class="card-body">
           <h2 class="card-title"><%= instrument.category %></h2>
           <p class="card-text"><%= instrument.description %></p>
+          <p class="btn btn-succes"><%= link_to instrument.title, instrument_path(instrument) %></p>
         </div>
       </div>
       <% end %>

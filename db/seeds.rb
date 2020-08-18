@@ -31,7 +31,7 @@ puts "Creating instruments..."
   category = Faker::Music.instrument
   instrument = Instrument.new(
     user_id: User.first.id,
-     pickup_address: full_address,
+    pickup_address: full_address,
     category: category,
     price_per_day: rand(10..60),
     description: "Awesome " + category,
