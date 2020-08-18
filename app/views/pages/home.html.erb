@@ -1,5 +1,17 @@
 <div class="banner"> 
-  <h1 class="text-center">tone!</h1>
+  <%= video_tag "banner-home.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "video-bg" %>
+  <h1 class="text-center">TONE!</h1>
   <p class="text-center">find the best music tools around you</p>
   <br>
+
+
+
+  <div class="form-group row d-flex justify-content-center">
+    <div class= "col-md-auto">
+      <div class="form-inline">
+        <input type="text" class="form-control search-input" placeholder="Search" name="srch-term" id="srch-term" />
+        <button class="btn btn-success" type="submit">Search</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -3,9 +3,9 @@
   background: 
   linear-gradient(
     rgba(0, 0, 0, 0.8),
-    rgba(0, 0, 0, 0.2)
-  ),
-  url('https://images.unsplash.com/photo-1556379118-7034d926d258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2776&q=80');
+    rgba(0, 0, 0, 0)
+  );
+  // url('https://images.unsplash.com/photo-1556379118-7034d926d258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2776&q=80');
 height: 100vh;
 padding-top: 40vh;
 background-size: cover;
@@ -13,11 +13,14 @@ background-position: center;
 }
 
 .banner h1 {
+  padding: 0;
   margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-weight: 100;
+  color: #e34f33;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+  font-size: 128px;
   font-weight: bold;
+  text-align: center;
 }
 
 .banner p {
@@ -25,4 +28,23 @@ background-position: center;
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.video-bg {
+  opacity: 0.9;;
+  z-index: -2;
+  position: absolute;
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+}
+
+.search-input {
+  position:relative; 
+  background-color: transparent; 
+  opacity: 0.9;
+  right: 30px; 
+  top: 2px;
 }
