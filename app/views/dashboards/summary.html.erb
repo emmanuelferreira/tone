@@ -1,14 +1,14 @@
 <h1>INSTRUMENTS</h1>
-<div class="cards">
   <% @instruments.each do |instrument| %>
       <%= instrument.category %>
       <%= instrument.description %>
-      <div class="card-instrument">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-instrument-infos">
-          <h2>instrument.category</h2>
-          <p>instrument.description</p>
-        </div>
-      </div>
   <% end %>
-</div>
+
+
+
+<h1>Bookings</h1>
+
+  <% @bookings.each do |booking| %>
+    <%= booking.check_in_date %>
+    <%= booking.check_out_date %>
+  <% end %>
