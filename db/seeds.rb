@@ -10,47 +10,36 @@ require "faker"
 
 puts "Cleaning database..."
 User.destroy_all
-puts "Creating users..."
-5.times do
-  user = User.new(
-    username: Faker::Internet.username ,
-    email: Faker::Internet.email,
-    password: '123456'
-  )
+puts "Creating 1 user..."
+user = User.new(
+  username: "emmanuel19",
+  email: "emmanuel@gmail.com",
+  password: '123456'
+)
   user.save!
-end
-puts "Finished with the users creation!"
-
+puts "Finished with the user creation!"
 
 
 puts "Cleaning database..."
 Instrument.destroy_all
 puts "Creating instruments..."
-3.times do
-  full_address = Faker::Address.full_address
-  category = Faker::Music.instrument
+5.times do
+  category = ["guitar", "piano", "flute", "bass"].sample
+  full_address = ["Avenue des Boveresses 42, 1010 Lausanne", "Place de la Palud 2 1002 Lausanne ", "Avenue de la Gare 46 1022 Chavannes-près-Renens"].sample
+  word = ["Rent", "Awesome", "Great"]
+
   instrument = Instrument.new(
     user_id: User.first.id,
     pickup_address: full_address,
     category: category,
     price_per_day: rand(10..60),
-    description: "Awesome " + category,
-    title: category
+    description: "An ideal #{category} for students and beginners.
+An excellent value in #{category}, Squier's Affinity Series are ideal for players who are just getting started, with solid construction and electronics. This Affinity Series Telecaster provides all the you want from a Tele, along with a smooth-playing Indian laurel fretboard and the ease and convenience of a top-loading bridge. Now available in this limited-edition finish. Case sold separately. Start with a real Telecaster. Order your special-edition Affinity Tele today.",
+    title: "#{word.sample} #{category.capitalize} "
   )
+
   instrument.save!
 end
 
-2.times do
-  full_address = Faker::Address.full_address
-  category = Faker::Music.instrument
-  instrument2 = Instrument.new(
-    user_id: User.last.id,
-    pickup_address: full_address,
-    category: category,
-    price_per_day: rand(10..60),
-    description: "Awesome " + category,
-    title: category
-    )
-  instrument2.save!
-end
-# puts "Finished with the ingredients creation!"
+
+
