@@ -1,19 +1,20 @@
 <div class="container">
-  <div class="title-box">
-    <div class="title-instrument">
-      <h1><%= @instrument.title %></h1>
-    </div>
-    <div class="d-flex justify-content-between">
-      <p><%= @instrument.pickup_address %></p>
-      <p><%= @instrument.price_per_day %> CH</p>
-    </div>
+  <div class="row">
+    <div class="sub-container">
+      <div class="title-instrument">
+        <h1><%= @instrument.title %></h1>
+      </div>
+      <div class="d-flex justify-content-between">
+        <p><%= @instrument.pickup_address %></p>
+        <p><%= @instrument.price_per_day %> CH</p>
+      </div>
   </div>
 
   <div id="carouselExampleFade" class="carousel slide carousel-fade carousel-inner" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <%= image_tag "piano1.jpg", class: "d-block w-100" %>
-      </div>
+      </div>s
       <div class="carousel-item">
         <%= image_tag "piano2.jpg", class: "d-block w-100" %>
       </div>
@@ -30,10 +31,16 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <div align-item-center>
+
+  <div class="sub-container">
     <h1>Description</h1>
     <p><%= @instrument.description %></p>
   </div>
+
+
+
+  </div>
+
 
 </div>
 
