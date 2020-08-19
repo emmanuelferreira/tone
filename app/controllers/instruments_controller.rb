@@ -11,13 +11,22 @@ class InstrumentsController < ApplicationController
       end
     else
       @instruments = Instrument.all
+      @instrument_geo = Instrument.geocoded
+      @markers = @instrument_geo.map do |instrument|
+        {
+          lat: instrument.latitude,
+          lng: instrument.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { instrument: instrument }),
+          image_url: helpers.asset_url('/assets/images/logo-white.png')
+        }
+      end
     end
   end
 
   def show
   end
 
-  def new
+  def new 
     @instrument = Instrument.new
   end
 
