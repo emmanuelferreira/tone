@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
   resources :reviews, only: [ :show, :destroy ]
   get "dashboard", to: "dashboards#summary"
+  get "profile", to: "profiles#overview"
 end

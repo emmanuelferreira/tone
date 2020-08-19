@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   has_many :instruments, dependent: :destroy
   has_many :bookings
+
+  validates_uniqueness_of :username
 end
