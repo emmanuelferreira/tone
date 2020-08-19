@@ -9,7 +9,8 @@
           <div class="card-body">
             <h2 class="card-title"><%= instrument.category %></h2>
             <p class="card-text"><%= instrument.description %></p>
-            <%= link_to "Remove", instrument_path(instrument), method: :delete, data: { confirm: "Are you sure you want to remove this product from your renting list?"} , class: "btn btn-success"%></li>
+            <%= link_to "Remove", instrument_path(instrument), method: :delete, data: { confirm: "Are you sure you want to remove this product from your renting list?"} , class: "btn btn-success"%>
+            <%= link_to "Edit", edit_instrument_path(instrument), class: "btn btn-success" %>
           </div>
         </div>
         <% end %>

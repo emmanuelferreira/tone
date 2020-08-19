@@ -46,7 +46,7 @@ class InstrumentsController < ApplicationController
 
   def update
     if @instrument.update(instrument_params)
-      redirect_to instrument_path(@instrument), notice: 'Instrument was successfully updated.'
+      redirect_to dashboard_path, notice: 'Instrument was successfully updated.'
     else
       render :edit
     end
