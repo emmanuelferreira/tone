@@ -1,4 +1,4 @@
-<div class="container-dashboard d-flex justify-content-around">
+<div class="container-dashboard d-flex justify-content-between">
   <div class="container-instruments-summary">
     <h1>My Instruments for Rent </h1>
       <div class="row">
@@ -15,15 +15,15 @@
         <% end %>
       </div>
     <%= link_to "Add a instrument", new_instrument_path, class: "btn btn-success" %>
- </div>
+</div>
 
- <div class="container-dashboard-bookings">
+<div class="container-dashboard-bookings">
     <h1>Booking Requests</h1>
-     <% @bookings.each do |booking| %>
+    <% @bookings.each do |booking| %>
       <%= booking.check_in_date %>
       <%= booking.check_out_date %>
     <% end %>
-  </div>
+</div>
 
   <div class="container-dashboard-bookings">
     <h1>My Bookings</h1>
