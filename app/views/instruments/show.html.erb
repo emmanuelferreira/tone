@@ -1,12 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="sub-container">
-      <div class="title-instrument">
+    <div class="sub-container d-flex justify-content-between">
+      <div class="title">
         <h1><%= @instrument.title %></h1>
       </div>
-      <div class="d-flex justify-content-between">
-        <p><%= @instrument.pickup_address %></p>
-        <p><%= @instrument.price_per_day %> CH</p>
+      <div class="title-infos">
+         <!--  <li><%= @instrument.pickup_address %></li>
+          <li><%= @instrument.price_per_day %> CH</li> -->
+          <blockquote class="blockquote text-center">
+          <p class="mb-0"><%= @instrument.pickup_address %></p>
+          <footer class="blockquote-footer"><cite title="Source Title"><%= @instrument.price_per_day %> CH</cite></footer>
+          </blockquote>
       </div>
   </div>
 
@@ -33,12 +37,13 @@
   </div>
 
   <div class="sub-container">
-    <h1>Description</h1>
-    <p><%= @instrument.description %></p>
+    <h3>Description <small class="text-muted"><%= @instrument.description %></small></h3>
   </div>
 
-
-
+  <div id="map"
+              style="width: 80%; height: 600px;"
+              data-markers="<%= @markers.to_json %>"
+              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 
 
