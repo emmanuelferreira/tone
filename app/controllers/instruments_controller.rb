@@ -24,9 +24,15 @@ class InstrumentsController < ApplicationController
   end
 
   def show
+    @markers = [ {
+          lat: @instrument.latitude,
+          lng: @instrument.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { instrument: @instrument }),
+          image_url: helpers.asset_url('logo-white.png')
+        } ]
   end
 
-  def new 
+  def new
     @instrument = Instrument.new
   end
 
