@@ -9,14 +9,17 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @instrument = Instrument.find(params[:instrument_id])
     @booking = Booking.new(booking_params)
+    @user = current_user
+    @instrument = Instrument.find(params[:instrument_id])
     @booking.user = @user
     @booking.instrument = @instrument
     @booking.status = "pending"
+    @booking_days = params[:checking_out_date] - params[:checking_in_date]
+    @total_price = @instrument.price_per_day*@nbdays
+
     if @booking.save!
-      redirect_to booking_path(@booking)
+      redirect_to dashboard_path
     else
       render :new
     end

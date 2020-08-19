@@ -1,44 +1,57 @@
-<div class="container-dashboard d-flex justify-content-between">
-  <div class="container-instruments-summary">
-    <h1>My Instruments for Rent </h1>
+<div class = "container mx-auto " style="padding-top: 30px ">
+  <!-- Tab links -->
+  <div class="tab mx-auto">
+    <button class="tablinks">Bookings Received</button>
+    <button class="tablinks">Bookings Made </button>
+    <button class="tablinks">Instruments for Rent</button>
+  </div>
+  <!-- ---------------Bookings received ----------------------------->
+
+  <div id="bookings-received" class="tabcontent">
+    <div class="container" style="padding-top: 15px">
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>Upcoming bookings </h4>
+        </div>
+        <div class="col-lg-6">
+          <h4>Past Bookings</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!------------------------------ Requested Bookings----------------------- -->
+  <div id="requested-bookings" class="tabcontent">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>My upcoming bookings</h4>
+        </div>
+        <div class="col-lg-6">
+          <h4>My past bookings</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ---------------------Instruments ------------------------------>
+  <div id="instruments" class="tabcontent">
+    <div class="container">>
+      <h1>My Instruments for Rent </h1>
       <div class="row">
         <% @instruments.each do |instrument| %>
-        <div class="card-product w-100">
-          <img class="card-img-top" src="https://images.pexels.com/photos/2049414/pexels-photo-2049414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-          <div class="card-body">
-            <h2 class="card-title"><%= instrument.category %></h2>
-            <p class="card-text"><%= instrument.description %></p>
-            <%= link_to "Remove", instrument_path(instrument), method: :delete, data: { confirm: "Are you sure you want to remove this product from your renting list?"} , class: "btn btn-success"%>
-            <%= link_to "Edit", edit_instrument_path(instrument), class: "btn btn-success" %>
+          <div class="card-product">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+              <h2><%= instrument.title %></h2>
+              <ul>
+                <li><span><%= instrument.price_per_day %> CHF</span> </li>
+              </ul>
+            </div>
+            <%= link_to "Remove", instrument_path(instrument), method: :delete, data: { confirm: "Are you sure you want to remove this product from your renting list?"} , class: "btn btn-transparent"%>
+            <%= link_to "Edit", edit_instrument_path(instrument), class: "btn btn-trasnparent" %>
           </div>
-        </div>
         <% end %>
+        <%= link_to "Add an instrument", new_instrument_path, class: "btn btn-success" %>
       </div>
-
-    <%= link_to "Add an instrument", new_instrument_path, class: "btn btn-success" %>
- </div>
-
-<div class="container-dashboard-bookings">
-    <h1>Booking Requests</h1>
-    <% @bookings.each do |booking| %>
-      <%= booking.check_in_date %>
-      <%= booking.check_out_date %>
-    <% end %>
-</div>
-
-  <div class="container-dashboard-bookings">
-    <h1>My Bookings</h1>
-    <% @bookings.each do |booking| %>
-      <%= booking.check_in_date %>
-      <%= booking.check_out_date %>
-    <% end %>
+    </div>
   </div>
-
-  <div class="container-dashboard-history">
-    <h1>My previous bookings</h1>
-    <% @bookings.each do |booking| %>
-    <% end %>
-  </div>
-
 </div>
-

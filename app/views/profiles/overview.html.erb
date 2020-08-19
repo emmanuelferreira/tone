@@ -1,12 +1,26 @@
 
+
 <div class="container card-body">
   <div class="login-card p-3 shadow-lg rounded">
     <div class="pt-3">
-      <h2><%=@user.email%></h2>
-      <h1 style="color: orange"> UNDER CONSTRUCTION </h1>
-    </div>
+      <h4><%= @user.username></h4></div>
+        <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+          <img alt="User Pic" src="#"id="profile-image1" class="img-circle img-responsive" style = "width:50%; height: 50%">
+        </div>
+           <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
+            <ul class="container details" >
+              <li><p>
+                  <span class="glyphicon glyphicon-envelope one" style="width:25px;"> </span>
+                  User Email: <%= @user.email %>
+                </p></li>
+               <li><p>
+                  <span class="glyphicon glyphicon-envelope one" style="width:25px;"></span>
+                  Account Began: <%= @user.created_at.to_formatted_s(:long)%>
+                </p></li>
+            </ul>
+          </div>
+   <button class="btn btn-flat" type="submit" style = "color:white">
+    <%= link_to "Edit Profile",  edit_user_registration_path,{:style=>'color:white;'} %></button>
+    <%= link_to "Delete my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-flat" %></p>
   </div>
-</div>
-
-
-
+  </div>
