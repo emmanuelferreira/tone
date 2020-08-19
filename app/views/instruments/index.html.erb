@@ -12,6 +12,10 @@
           <h2 class="card-title"><%= instrument.category %></h2>
           <p class="card-text"><%= instrument.description %></p>
           <p class="btn btn-sm btn-primary col-3"><%= link_to instrument.title, instrument_path(instrument) %></p>
+          <div id="map"
+              style="width: 80%; height: 600px;"
+              data-markers="<%= @markers.to_json %>"
+              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
         </div>
       </div>
       <% end %>

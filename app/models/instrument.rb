@@ -5,5 +5,5 @@ class Instrument < ApplicationRecord
   geocoded_by :pickup_address
 
   validates :category, :pickup_address, :price_per_day, presence: true
-  after_validation :geocode, if: :will_save_change_to_address?
+  after_validation :geocode, if: :will_save_change_to_pickup_address?
 end
