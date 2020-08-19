@@ -1,0 +1,12 @@
+<div class="bookings-form">
+  <div class="bookings-form-title">
+    <h6>Book now!</h6>
+  </div>
+   <div>
+    <%= simple_form_for([@instrument, @booking]) do |f| %>
+      <%= f.input :check_in_date, wrapper_html: { class: 'flex-select' }, as: :date, html5: true %>
+      <%= f.input :check_out_date, wrapper_html: { class: 'flex-select' }, as: :date, html5: true %>
+      <%= f.button :submit, "Send request", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
