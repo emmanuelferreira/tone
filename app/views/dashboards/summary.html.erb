@@ -1,15 +1,43 @@
-<%=console  %>
-<h1>INSTRUMENTS</h1>
-  <% @instruments.each do |instrument| %>
-      <%= instrument.category %>
-      <%= instrument.description %>
-  <% end %>
 
+<div class="container-dashboard d-flex justify-content-around">
+  <div class="container-instruments-summary">
+    <h1>My Instruments for Rent </h1>
+      <div class="row">
+        <% @instruments.each do |instrument| %>
+        <div class="card-product w-100">
+          <img class="card-img-top" src="https://images.pexels.com/photos/2049414/pexels-photo-2049414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+          <div class="card-body">
+            <h2 class="card-title"><%= instrument.category %></h2>
+            <p class="card-text"><%= instrument.description %></p>
+            <%= link_to "Remove", instrument_path(instrument), method: :delete, data: { confirm: "Are you sure you want to remove this product from your renting list?"} , class: "btn btn-success"%></li>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    <%= link_to "Add a instrument", new_instrument_path, class: "btn btn-success" %>
+ </div>
 
+ <div class="container-dashboard-bookings">
+    <h1>Booking Requests</h1>
+     <% @bookings.each do |booking| %>
+      <%= booking.check_in_date %>
+      <%= booking.check_out_date %>
+    <% end %>
+  </div>
 
-<h1>Bookings</h1>
+  <div class="container-dashboard-bookings">
+    <h1>My Bookings</h1>
+    <% @bookings.each do |booking| %>
+      <%= booking.check_in_date %>
+      <%= booking.check_out_date %>
+    <% end %>
+  </div>
 
-  <% @bookings.each do |booking| %>
-    <%= booking.check_in_date %>
-    <%= booking.check_out_date %>
-  <% end %>
+  <div class="container-dashboard-history">
+    <h1>My previous bookings</h1>
+    <% @bookings.each do |booking| %>
+    <% end %>
+  </div>
+
+</div>
+

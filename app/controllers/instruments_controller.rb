@@ -54,7 +54,7 @@ class InstrumentsController < ApplicationController
 
   def destroy
     @instrument.destroy
-    redirect_to instruments_path, notice: 'Instrument was successfully deleted.'
+    redirect_to dashboard_path, notice: 'Instrument was successfully removed.'
   end
 
   private
