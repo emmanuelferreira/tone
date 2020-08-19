@@ -9,7 +9,7 @@
           <div class="card-body">
             <h2 class="card-title"><%= instrument.category %></h2>
             <p class="card-text"><%= instrument.description %></p>
-            <%= link_to "Remove", instrument_path(instrument), method: :delete, data: { confirm: "Are you sure you want to remove this product from your renting list?"} %></li>
+            <%= link_to "Remove", instrument_path(instrument), method: :delete, data: { confirm: "Are you sure you want to remove this product from your renting list?"} , class: "btn btn-success"%></li>
           </div>
         </div>
         <% end %>
@@ -30,6 +30,12 @@
     <% @bookings.each do |booking| %>
       <%= booking.check_in_date %>
       <%= booking.check_out_date %>
+    <% end %>
+  </div>
+
+  <div class="container-dashboard-history">
+    <h1>My previous bookings</h1>
+    <% @bookings.each do |booking| %>
     <% end %>
   </div>
 
