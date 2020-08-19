@@ -1,7 +1,7 @@
 class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
- 
+
 
   def index
     if params[:query].present?
@@ -22,8 +22,9 @@ class InstrumentsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @instrument = Instrument.new(instrument_params)
-    @instrument.user_id = params(:user_id)
+    @instrument.user = @user
     if @instrument.save!
       redirect_to instrument_path(@instrument)
     else
@@ -54,6 +55,6 @@ class InstrumentsController < ApplicationController
   end
 
   def instrument_params
-    params.require(:instrument).permit(:description, :pickup_address, :category, :price_per_day, :user_id) #:photo need to be add 
+    params.require(:instrument).permit(:description, :pickup_address, :category, :price_per_day, :user_id) #:photo need to be add
   end
 end
