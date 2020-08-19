@@ -4,7 +4,11 @@
       <div class="row">
         <% @instruments.each do |instrument| %>
         <div class="card-product w-100">
-          <img class="card-img-top" src="https://images.pexels.com/photos/2049414/pexels-photo-2049414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+          <% if instrument.photo.attached? %>
+            <%= cl_image_tag instrument.photo.key, width: 160, crop: :fill %>
+          <% else %>
+            <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
+          <% end %>
           <div class="card-body">
             <h2 class="card-title"><%= instrument.category %></h2>
             <p class="card-text"><%= instrument.description %></p>

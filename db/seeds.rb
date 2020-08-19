@@ -23,11 +23,11 @@ puts "Finished with the user creation!"
 puts "Cleaning database..."
 Instrument.destroy_all
 puts "Creating instruments..."
-5.times do
-  category = ["guitar", "piano", "flute", "bass"].sample
-  full_address = ["Avenue des Boveresses 42, 1010 Lausanne", "Place de la Palud 2 1002 Lausanne ", "Avenue de la Gare 46 1022 Chavannes-près-Renens"].sample
-  word = ["Rent", "Awesome", "Great"]
 
+5.times do
+  category = ["guitar", "piano", "flute", "bass"].sample()
+  full_address = ["Avenue des Boveresses 42, 1010 Lausanne", "Place de la Palud 2 1002 Lausanne ", "Avenue de la Gare 46 1022 Chavannes-près-Renens"].sample()
+  word = ["Rent", "Awesome", "Great"].sample
   instrument = Instrument.new(
     user_id: User.first.id,
     pickup_address: full_address,
@@ -35,7 +35,7 @@ puts "Creating instruments..."
     price_per_day: rand(10..60),
     description: "An ideal #{category} for students and beginners.
 An excellent value in #{category}, Squier's Affinity Series are ideal for players who are just getting started, with solid construction and electronics. This Affinity Series Telecaster provides all the you want from a Tele, along with a smooth-playing Indian laurel fretboard and the ease and convenience of a top-loading bridge. Now available in this limited-edition finish. Case sold separately. Start with a real Telecaster. Order your special-edition Affinity Tele today.",
-    title: "#{word.sample} #{category.capitalize} "
+    title: "#{word} #{category.capitalize} "
   )
 
   instrument.save!

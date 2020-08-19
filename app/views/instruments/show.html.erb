@@ -13,32 +13,21 @@
           </blockquote>
       </div>
   </div>
-
-  <div id="carouselExampleFade" class="carousel slide carousel-fade carousel-inner" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <%= image_tag "piano1.jpg", class: "d-block w-100" %>
-      </div>s
-      <div class="carousel-item">
-        <%= image_tag "piano2.jpg", class: "d-block w-100" %>
-      </div>
-      <div class="carousel-item">
-        <%= image_tag "piano3.jpg", class: "d-block w-100" %>
-      </div>
+  <div class="container-instrument d-flex">
+    <div class="container-instrument-img">
+      <% if @instrument.photo.attached? %>
+       <%= cl_image_tag @instrument.photo.key, width: 300, crop: :fill %>
+      <% else %>
+       <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
+      <% end %>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    <div class="sub-container">
+      <h3>Description <small class="text-muted"><%= @instrument.description %></small></h3>
+    </div>
   </div>
 
-  <div class="sub-container">
-    <h3>Description <small class="text-muted"><%= @instrument.description %></small></h3>
-  </div>
+
+
 
   <div id="map"
               style="width: 80%; height: 600px;"
