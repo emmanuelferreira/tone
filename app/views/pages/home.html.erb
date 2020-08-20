@@ -9,11 +9,9 @@
     <div class= "col-md-auto">
       <div class="form-inline">
         <%= form_tag instruments_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control p-2 ",
-            placeholder: "ex: Piano"
-          %>
+          <!--<%= text_field_tag :query,
+            params[:query],class: "form-control p-2 ",placeholder: "ex: Piano"%> -->
+          <%=select_tag(:query, options_for_select(@instruments.map{|c|[c.category, c.category]}.uniq),prompt: "Select all categories")%>
           <%= submit_tag "Search", class: "btn btn-success b-4" %>
         <% end %>
       </div>
