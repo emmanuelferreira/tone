@@ -1,54 +1,129 @@
-<div class="container">
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#instruments" role="tab" aria-controls="home"
-      aria-selected="true">My instruments</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#booking-request" role="tab" aria-controls="profile"
-      aria-selected="false">Booking Requests</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#bookings" role="tab" aria-controls="contact"
-      aria-selected="false">My Bookings</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="previous-bookings-tab" data-toggle="tab" href="#previous-booking" role="tab" aria-controls="contact"
-      aria-selected="false">My previous bookings</a>
-  </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="instruments" role="tabpanel" aria-labelledby="home-tab">
+<div class="container justify-content-center">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#instruments" role="tab" aria-controls="home"
+        aria-selected="true">My instruments</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#booking-request" role="tab" aria-controls="profile"
+        aria-selected="false">Booking Requests</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#bookings" role="tab" aria-controls="contact"
+        aria-selected="false">My Bookings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="previous-bookings-tab" data-toggle="tab" href="#previous-booking" role="tab" aria-controls="contact"
+        aria-selected="false">My previous bookings</a>
+    </li>
+  </ul>
+  <!--------------------------Instruments Summary-------------------------------- -->
+  <div class="tab-content d-flex" id="myTabContent">
+    <div class="tab-pane fade show active" id="instruments" role="tabpanel" aria-labelledby="home-tab">
       <% @instruments.each do |instrument| %>
-        <div class="card-product w-100">
+        <div class="card-product col col-sm-10">
           <% if instrument.photo.attached? %>
             <%= cl_image_tag instrument.photo.key, width: 160, crop: :fill %>
           <% else %>
             <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
           <% end %>
-          <div class="card-body">
-            <h2 class="card-title"><%= instrument.category %></h2>
-            <p class="card-text"><%= instrument.description %></p>
-            <%= link_to "Remove", instrument_path(instrument), method: :delete, data: { confirm: "Are you sure you want to remove this product from your renting list?"} , class: "btn btn-success"%>
-            <%= link_to "Edit", edit_instrument_path(instrument), class: "btn btn-success" %>
+        <div class="card-body flex-row">
+          <h2 class="card-title d-flex justify-content-start"><%= instrument.category %></h2>
+          <p class="card-text"><%= instrument.description %></p>
+        </div>
+        <div class="row">
+          <div class="col">
+            <%= link_to "Remove", instrument_path(instrument), method: :delete, data: { confirm: "Are you sure you want to remove this product from your renting list?"} , class: "btn btn-success btn-sm"%>
+          </div>
+          <div class="col">
+            <%= link_to "Edit", edit_instrument_path(instrument), class: "btn btn-success btn-sm" %>
           </div>
         </div>
-        <% end %></div>
-  <div class="tab-pane fade" id="booking-request" role="tabpanel" aria-labelledby="booking-request-tab">
-    <% @bookings.each do |booking| %>
-      <h3><%= booking.check_in_date %></h3>
-      <h3><%= booking.check_out_date %></h3>
-    <% end %>
+        </div>
+      <% end %>
+    </div>
+
+
+    <!--------------------------Booking Requests-------------------------------- -->
+      <div class="tab-pane fade" id="booking-request" role="tabpanel" aria-labelledby="booking-request-tab">
+        <% @bookings_received.each do |booking| %>
+          <div class="card-product col col-sm-10">
+            <% if booking.instrument.photo.attached? %>
+              <%= cl_image_tag booking.instrument.photo.key, width: 160, crop: :fill %>
+            <% else %>
+              <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
+            <% end %>
+          <div class="card-body flex-row">
+            <h2 class="card-title d-flex justify-content-start"><%= booking.instrument.title %></h2>
+            <p class="card-text">Total price: <%= booking.rental_price_total %>CHF</p>
+            <p class="card-text">Start date: <%= booking.check_in_date %></p>
+            <p class="card-text">End date: <%= booking.check_out_date %></p>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-success btn-sm" id="accept-button">Accept</button>
+            </div>
+            <div class="col">
+              <button class="btn btn-success btn-sm" id="decline-button">Decline</button>
+            </div>
+          </div>
+          </div>
+        <% end %>
+      </div>
+
+
+    <!--------------------------Booking Overview-------------------------------- -->
+    <div class="tab-pane fade" id="bookings" role="tabpanel" aria-labelledby="bookings-tab">
+      <% @bookings_made.each do |booking| %>
+        <% if booking.check_out_date > Date.today() %>
+          <div class="card-product col col-sm-10">
+            <% if booking.instrument.photo.attached? %>
+              <%= cl_image_tag booking.instrument.photo.key, width: 160, crop: :fill %>
+            <% else %>
+              <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
+            <% end %>
+            <div class="card-body flex-row">
+              <h2 class="card-title d-flex justify-content-start"><%= booking.instrument.title %></h2>
+              <p class="card-text">Total price: <%= booking.rental_price_total %>CHF</p>
+              <p class="card-text">Start date: <%= booking.check_in_date %></p>
+              <p class="card-text">End date: <%= booking.check_out_date %></p>
+              <p class="card-text">Approval status: <%= booking.status %></p>
+            </div>
+            <div class="row">
+              <% if booking.status == "pending" %>
+                <div class="col">
+                  <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to remove this product from your renting list?"} , class: "btn btn-success btn-sm"%>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <!--------------------------Booking History-------------------------------- -->
+    <div class="tab-pane fade" id="previous-booking" role="tabpanel" aria-labelledby="previous-bookings-tab">
+      <% @bookings_made.each do |booking| %>
+        <% if booking.check_out_date < Date.today() %>
+          <div class="card-product col col-sm-10">
+            <% if booking.instrument.photo.attached? %>
+              <%= cl_image_tag booking.instrument.photo.key, width: 160, crop: :fill %>
+            <% else %>
+              <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
+            <% end %>
+            <div class="card-body flex-row">
+             <h2 class="card-title d-flex justify-content-start"><%= booking.instrument.title %></h2>
+             <p class="card-text">Total price: <%= booking.rental_price_total %>CHF</p>
+             <p class="card-text">Start date: <%= booking.check_in_date %></p>
+             <p class="card-text">End date: <%= booking.check_out_date %></p>
+           </div>
+          </div>
+          <div class="col">
+            <!-- Link to write Review -->
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
   </div>
-  <div class="tab-pane fade" id="bookings" role="tabpanel" aria-labelledby="bookings-tab">
-    <% @bookings.each do |booking| %>
-      <%= booking.check_in_date %>
-      <%= booking.check_out_date %>
-    <% end %>
-  </div>
-  <div class="tab-pane fade" id="previous-booking" role="tabpanel" aria-labelledby="previous-bookings-tab">
-    <% @bookings.each do |booking| %>
-    <% end %>
-  </div>
-</div>
 </div>
