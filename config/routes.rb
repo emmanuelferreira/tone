@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :instruments do
     resources :bookings, only: [:new, :create ]
-  end
-  resources :bookings, only: [:show, :destroy ] do
     resources :reviews, only: [:index, :new, :create]
   end
+  resources :bookings, only: [:show, :destroy ]
   resources :reviews, only: [ :show, :destroy ]
   get "dashboard", to: "dashboards#summary"
   get "profile", to: "profiles#overview"
