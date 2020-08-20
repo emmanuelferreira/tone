@@ -32,12 +32,18 @@ h1 {
   padding: 4px;
 }
 
-.card-product h2 {
-  padding: 4px;
-  font-size: 16px;
+.card-title {
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 24px;
   font-weight: bold;
   margin: 0;
   text-align: left;
+  padding-right: 8px;
+  bottom: 16px;
+}
+
+.card-description {
+  font-size: 16px;
 }
 
 .card-product p {
@@ -45,6 +51,7 @@ h1 {
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
+  text-align: left;
 }
 
 .card-product .card-product-infos {
@@ -61,4 +68,11 @@ h1 {
   height:100%;
   top:0px;
   left:0px;
+}
+
+.card-price {
+  font-style: italic;
+  color: #e34f33;
+  opacity: 0.9;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2)
 }

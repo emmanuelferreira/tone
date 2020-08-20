@@ -5,7 +5,7 @@
         <h1><%= @instrument.title %></h1>
       </div>
       <div class="title-infos">
-         <!--  <li><%= @instrument.pickup_address %></li>
+        <!--  <li><%= @instrument.pickup_address %></li>
           <li><%= @instrument.price_per_day %> CH</li> -->
           <blockquote class="blockquote text-center">
           <p class="mb-0"><%= @instrument.pickup_address %></p>
@@ -16,9 +16,9 @@
   <div class="container-instrument d-flex">
     <div class="container-instrument-img">
       <% if @instrument.photo.attached? %>
-       <%= cl_image_tag @instrument.photo.key, width: 300, crop: :fill %>
+        <%= cl_image_tag @instrument.photo.key, width: 300, crop: :fill %>
       <% else %>
-       <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
+        <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
       <% end %>
     </div>
     <div class="sub-container d-flex flex-d flex-column">
