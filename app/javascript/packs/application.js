@@ -33,10 +33,12 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { dateValidation } from '../plugins/flatpickr';
 
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   // initUpdateNavbarOnScroll();
+
   initMapbox();
   initAutocomplete();
 });
