@@ -25,6 +25,7 @@ class InstrumentsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @bookings = Booking.where("instrument_id = #{params[:id]}")
     @markers = [{
           lat: @instrument.latitude,
           lng: @instrument.longitude,

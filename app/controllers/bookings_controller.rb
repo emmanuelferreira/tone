@@ -9,17 +9,21 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @instrument = Instrument.find(params[:instrument_id])
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new(status: "pending")
+    @user = current_user
+    @instrument = Instrument.find(params[:id])
+    @check_in_date = params["search"]["check_in_date"].to_date
+    @check_out_date = params["search"]["check_out_date"].to_date
+    @rental_days = (@check_out_date - @check_in_date).to_i
+    @rental_price_total = @rental_days * @instrument.price_per_day
+    @booking.rental_price_total = @rental_price_total
+    @booking.check_in_date = @check_in_date
+    @booking.check_out_date = @check_out_date
     @booking.user = @user
     @booking.instrument = @instrument
-    @booking.status = "pending"
-    if @booking.save!
-      redirect_to booking_path(@booking)
-    else
-      render :new
-    end
+    @booking.save
+    redirect_to dashboard_path, notice: 'Booking was successfully sent.'
+
   end
 
   def destroy
@@ -34,6 +38,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:checking_in_date, :checking_out_date, :rental_price_total, :rental_fees, :transfer_date)
+    params.require(:booking).permit(:checking_in_date, :checking_out_date, :rental_price_total, :rental_fees, :transfer_date, :id)
   end
 end
