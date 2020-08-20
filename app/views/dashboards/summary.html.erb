@@ -1,8 +1,25 @@
-<div class="container-dashboard d-flex justify-content-between">
-  <div class="container-instruments-summary">
-    <h1>My Instruments for Rent </h1>
-      <div class="row">
-        <% @instruments.each do |instrument| %>
+<div class="container">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+      aria-selected="true">My instruments</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+      aria-selected="false">Booking Requests</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+      aria-selected="false">My Bookings</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+      aria-selected="false">My previous bookings</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="instruments" role="tabpanel" aria-labelledby="home-tab">
+      <% @instruments.each do |instrument| %>
         <div class="card-product w-100">
           <% if instrument.photo.attached? %>
             <%= cl_image_tag instrument.photo.key, width: 160, crop: :fill %>
@@ -16,33 +33,22 @@
             <%= link_to "Edit", edit_instrument_path(instrument), class: "btn btn-success" %>
           </div>
         </div>
-        <% end %>
-      </div>
-
-    <%= link_to "Add an instrument", new_instrument_path, class: "btn btn-success" %>
- </div>
-
-<div class="container-dashboard-bookings">
-    <h1>Booking Requests</h1>
+        <% end %></div>
+  <div class="tab-pane fade" id="booking-request" role="tabpanel" aria-labelledby="booking-request-tab">
     <% @bookings.each do |booking| %>
-      <%= booking.check_in_date %>
-      <%= booking.check_out_date %>
+      <h3><%= booking.check_in_date %></h3>
+      <h3><%= booking.check_out_date %></h3>
     <% end %>
-</div>
-
-  <div class="container-dashboard-bookings">
-    <h1>My Bookings</h1>
+  </div>
+  <div class="tab-pane fade" id="bookings" role="tabpanel" aria-labelledby="bookings-tab">
     <% @bookings.each do |booking| %>
       <%= booking.check_in_date %>
       <%= booking.check_out_date %>
     <% end %>
   </div>
-
-  <div class="container-dashboard-history">
-    <h1>My previous bookings</h1>
+  <div class="tab-pane fade" id="previous-booking" role="tabpanel" aria-labelledby="previous-bookings-tab">
     <% @bookings.each do |booking| %>
     <% end %>
   </div>
-
 </div>
-
+</div>
