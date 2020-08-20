@@ -18,4 +18,10 @@ class Instrument < ApplicationRecord
       end
     end
   end
+
+  def unavailable_dates
+    bookings.pluck(:check_in_date, :check_out_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
 end

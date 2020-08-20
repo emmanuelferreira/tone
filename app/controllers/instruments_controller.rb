@@ -4,23 +4,15 @@ class InstrumentsController < ApplicationController
 
 
   def index
-    if params[:query].present?
-      @instruments = Instrument.where("category ILIKE ?", "%#{params[:query]}%")
-      if @instruments.count == 0
-        @instruments = Instrument.all
-      end
-    else
-      @instruments = Instrument.all
-      @instrument_geo = Instrument.geocoded
-      @markers = @instrument_geo.map do |instrument|
+      @instruments = Instrument.geocoded
+      @markers = @instruments.map do |instrument|
         {
           lat: instrument.latitude,
           lng: instrument.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { instrument: instrument }),
-          image_url: helpers.asset_url('/assets/images/logo-white.png')
+          image_url: helpers.asset_url('logo-white.png')
         }
       end
-    end
   end
 
   def show

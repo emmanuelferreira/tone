@@ -1,12 +1,9 @@
 class DashboardsController < ApplicationController
 
   def summary
-    if current_user.instruments
-      @instruments = Instrument.where(user: current_user)
-    end
-
-    if current_user.bookings
-      @bookings = Booking.where(user: current_user)
-    end
+    @user = current_user
+    @instruments = Instrument.where(user: @user)
+    @bookings_made = Booking.where(user: @user)
+    @bookings_received = Booking.includes(:instrument).where(instruments: { user_id: @user.id })
   end
 end
