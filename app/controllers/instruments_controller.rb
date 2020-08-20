@@ -24,12 +24,13 @@ class InstrumentsController < ApplicationController
   end
 
   def show
-    @markers = [ {
+    @booking = Booking.new
+    @markers = [{
           lat: @instrument.latitude,
           lng: @instrument.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { instrument: @instrument }),
           image_url: helpers.asset_url('logo-white.png')
-        } ]
+        }]
   end
 
   def new
@@ -70,6 +71,7 @@ class InstrumentsController < ApplicationController
   end
 
   def instrument_params
-    params.require(:instrument).permit(:description, :pickup_address, :category, :price_per_day, :user_id, :title) #:photo need to be add
+    params.require(:instrument).permit(:description, :pickup_address, :category,
+                                       :price_per_day, :user_id, :title, :photo)
   end
 end
