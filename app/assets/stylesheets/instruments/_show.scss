@@ -66,7 +66,8 @@
 // }
 
 .container-review {
-  padding-top: 10px;
+  padding-top: 24px;
+  padding-right: 240px;
 }
 
 #price_per_day {
@@ -87,7 +88,7 @@
 }
 
 #title-show {
-  font-weight: bold;
+  font-size: 60px;
 }
 
 
@@ -106,3 +107,53 @@
   opacity: 0.9;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2)
 }
+
+.notification {
+  display: flex;
+  justify-content: flex-start;
+  margin: 9px;
+  width: 136%;
+  align-items: center;
+  margin: 32px;
+}
+
+.notification-content {
+  padding-left: 30px;
+}
+
+.notification-actions {
+  padding-left: 30px;
+}
+
+
+
+a {
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+
+.fa-pencil-alt {
+  color: #e34f33;
+}
+
+.fa-trash-alt {
+ color: #e34f33;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.container-reviews {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
