@@ -9,12 +9,16 @@
 @import "font-awesome";
 @import 'mapbox-gl/dist/mapbox-gl';
 @import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
+@import "flatpickr/dist/flatpickr";
+@import "flatpickr/dist/themes/airbnb";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "components/form";
 @import "components/footer";
-@import "instruments/show"
+@import "instruments/show";
+@import "components/tabs";
+
 
 
