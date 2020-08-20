@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <% image_tag "logo-white.png" %>
+    <% image_tag "logo.svg" %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "Instruments Nearby", instruments_path, class: "nav-link" %>
-         </li>
+        </li>
         <li class="nav-item">
           <%= link_to "Add instrument", new_instrument_path, class: "nav-link" %>
         </li>
@@ -29,10 +29,10 @@
         <div class="d-inline p-2">
           <%= link_to "Instruments Nearby", instruments_path, class: "nav-link" %>
         </div>
-        <div class="d-inline p-2">
+        <div class="d-inline p-2 login">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </div>
-        <div class="d-inline p-2">
+        <div class="d-inline p-2 text-light">
           <%= link_to "Sign In", new_user_session_path, class: "nav-link"  %>
         </div>
       <% end %>
