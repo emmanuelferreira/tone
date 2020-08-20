@@ -41,5 +41,15 @@ An excellent value in #{category}, Squier's Affinity Series are ideal for player
   instrument.save!
 end
 
+Booking.destroy_all
 
+booking = Booking.new(
+  instrument_id: Instrument.last.id,
+  user_id:  User.last.id,
+  check_in_date: Date.today,
+  check_out_date: Date.today + 3,
+  rental_price_total: 10,
+  status: 'accepted'
+)
 
+booking.save!
