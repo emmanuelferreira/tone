@@ -21,8 +21,12 @@
        <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
       <% end %>
     </div>
-    <div class="sub-container">
+    <div class="sub-container d-flex flex-d flex-column">
       <h3>Description <small class="text-muted"><%= @instrument.description %></small></h3>
+      <div class="booking-form d-flex">
+        <%= render 'shared/booking', instrument: @instrument %>
+      </div>
+
     </div>
   </div>
 
