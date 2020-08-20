@@ -23,14 +23,13 @@ puts "Finished with the user creation!"
 puts "Cleaning database..."
 Instrument.destroy_all
 puts "Creating instruments..."
-
+full_address = ["Avenue des Boveresses 42, 1010 Lausanne", "Place de la Palud 2 1002 Lausanne ", "Avenue de la Gare 46 1022 Chavannes-près-Renens"]
 5.times do
-  category = ["guitar", "piano", "flute", "bass"].sample()
-  full_address = ["Avenue des Boveresses 42, 1010 Lausanne", "Place de la Palud 2 1002 Lausanne ", "Avenue de la Gare 46 1022 Chavannes-près-Renens"].sample()
+  category = ["guitar", "piano", "flute", "bass"].sample
   word = ["Rent", "Awesome", "Great"].sample
   instrument = Instrument.new(
     user_id: User.first.id,
-    pickup_address: full_address,
+    pickup_address: full_address.sample,
     category: category,
     price_per_day: rand(10..60),
     description: "An ideal #{category} for students and beginners.
