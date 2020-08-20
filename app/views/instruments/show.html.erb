@@ -1,44 +1,48 @@
-<div class="container">
-  <div class="row">
-    <div class="sub-container d-flex align-self-center justify-content-between">
-      <div class="title">
-        <h1><%= @instrument.title %></h1>
-      </div>
-      <div class="title-infos">
-         <!--  <li><%= @instrument.pickup_address %></li>
-          <li><%= @instrument.price_per_day %> CH</li> -->
-          <blockquote class="blockquote text-center">
-          <p class="mb-0"><%= @instrument.pickup_address %></p>
-          <footer class="blockquote-footer"><cite title="Source Title"><%= @instrument.price_per_day %> CH</cite></footer>
-          </blockquote>
-      </div>
+<div class="container" id="instrument">
+
+  <div class="sub-container-show" id="title-infos">
+
+    <div class="container-title">
+      <h1><%= @instrument.title %></h1>
+    </div>
+    <div class="container-address-price">
+        <p><%= @instrument.pickup_address %></p>
+        <p id="price"><%= @instrument.price_per_day %> CH</p>
+    </div>
+
   </div>
-  <div class="container-instrument d-flex">
-    <div class="container-instrument-img">
+
+  <div class="sub-container-show">
+
+    <div class="container-img">
       <% if @instrument.photo.attached? %>
        <%= cl_image_tag @instrument.photo.key, width: 300, crop: :fill %>
       <% else %>
        <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
       <% end %>
     </div>
-    <div class="sub-container d-flex flex-d flex-column">
-      <h3>Description <small class="text-muted"><%= @instrument.description %></small></h3>
-      <div class="booking-form d-flex">
+
+    <div class="container-date-description">
+      <div class="container-instrument-description">
+        <h2>Description</h2>
+        <h3><%= @instrument.description %></h3>
+      </div>
+      <div class="container-booking-pickr">
         <%= render 'shared/booking', instrument: @instrument %>
       </div>
-
     </div>
+
   </div>
 
+  <div class="sub-container-show">
 
-
-
-  <div id="map"
-              style="width: 80%; height: 600px;"
+    <div class="container-map" id="map"
+              style="width: 50%; height: 600px;"
               data-markers="<%= @markers.to_json %>"
               data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  </div>
+    <div class="container-review"><h1>Reviews</h1></div>
 
+  </div>
 
 </div>
 
