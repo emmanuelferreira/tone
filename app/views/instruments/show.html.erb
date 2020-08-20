@@ -1,3 +1,4 @@
+
 <div class="container" id="instrument">
 
   <div class="sub-container-show" id="title-infos">
@@ -10,15 +11,16 @@
         <p id="price"><%= @instrument.price_per_day %> CH</p>
     </div>
 
+
   </div>
 
   <div class="sub-container-show">
 
     <div class="container-img">
       <% if @instrument.photo.attached? %>
-       <%= cl_image_tag @instrument.photo.key, width: 300, crop: :fill %>
+        <%= cl_image_tag @instrument.photo.key, width: 300, crop: :fill %>
       <% else %>
-       <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
+        <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
       <% end %>
     </div>
 
