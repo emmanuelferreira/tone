@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container justify-content-center">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#instruments" role="tab" aria-controls="home"
@@ -17,21 +17,27 @@
       aria-selected="false">My previous bookings</a>
   </li>
 </ul>
-<div class="tab-content" id="myTabContent">
+<div class="tab-content d-flex" id="myTabContent">
   <div class="tab-pane fade show active" id="instruments" role="tabpanel" aria-labelledby="home-tab">
       <% @instruments.each do |instrument| %>
-        <div class="card-product w-100">
+        <div class="card-product col col-sm-10">
           <% if instrument.photo.attached? %>
             <%= cl_image_tag instrument.photo.key, width: 160, crop: :fill %>
-          <% else %>
+            <% else %>
             <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
           <% end %>
-          <div class="card-body">
-            <h2 class="card-title"><%= instrument.category %></h2>
+          <div class="card-body flex-row">
+            <h2 class="card-title d-flex justify-content-start"><%= instrument.category %></h2>
             <p class="card-text"><%= instrument.description %></p>
-            <%= link_to "Remove", instrument_path(instrument), method: :delete, data: { confirm: "Are you sure you want to remove this product from your renting list?"} , class: "btn btn-success"%>
-            <%= link_to "Edit", edit_instrument_path(instrument), class: "btn btn-success" %>
-          </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <%= link_to "Remove", instrument_path(instrument), method: :delete, data: { confirm: "Are you sure you want to remove this product from your renting list?"} , class: "btn btn-success btn-sm"%>
+              </div>
+              <div class="col">
+                <%= link_to "Edit", edit_instrument_path(instrument), class: "btn btn-success btn-sm" %>
+              </div>
+            </div>  
         </div>
         <% end %></div>
   <div class="tab-pane fade" id="booking-request" role="tabpanel" aria-labelledby="booking-request-tab">
