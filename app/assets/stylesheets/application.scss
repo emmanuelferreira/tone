@@ -7,8 +7,8 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import 'mapbox-gl/dist/mapbox-gl';
-@import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
+@import "mapbox-gl/dist/mapbox-gl";
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 @import "flatpickr/dist/flatpickr";
 @import "flatpickr/dist/themes/airbnb";
 
@@ -17,7 +17,7 @@
 @import "pages/index";
 @import "components/form";
 @import "components/footer";
-
-@import "instruments/show";
+@import "components/map_show";
+@import "instruments/index";
 @import "components/tabs";
 @import "components/summary";

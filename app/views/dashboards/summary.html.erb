@@ -28,7 +28,7 @@
             <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
           <% end %>
         <div class="card-body flex-row">
-          <h2 class="card-title d-flex justify-content-start"><%= instrument.category %></h2>
+          <h2 class="card-title d-flex justify-content-start"><%= instrument.title %></h2>
           <p class="card-text"><%= instrument.description %></p>
         </div>
         <div class="row">
@@ -62,11 +62,9 @@
           </div>
           <div class="row text-right mb-3">
             <div class="col">
-              <button class="btn btn-success btn-sm" id="accept-button">Accept</button>
+              <%= link_to "Review", edit_booking_path(booking), class: "btn btn-success btn-sm" %>
             </div>
-            <div class="col">
-              <button class="btn btn-success btn-sm" id="decline-button">Decline</button>
-            </div>
+
           </div>
           </div>
           <% end %>
@@ -119,10 +117,12 @@
               <p class="card-text">Start date: <%= booking.check_in_date %></p>
               <p class="card-text">End date: <%= booking.check_out_date %></p>
             </div>
-          </div>
-          <div class="col">
+            <div class="col">
             <!-- Link to write Review -->
+              <%= link_to "Review", new_booking_review_path(booking), class: "btn btn-success btn-sm" %>
+            </div>
           </div>
+
         <% end %>
       <% end %>
     </div>
