@@ -1,7 +1,7 @@
 
 
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :destroy]
+  before_action :set_booking, only: [:show, :destroy, :edit, :update]
 
   def show
   end
@@ -27,6 +27,15 @@ class BookingsController < ApplicationController
     redirect_to dashboard_path, notice: 'Booking was successfully sent.'
   end
 
+  def edit
+    @instrument = Instrument.find(params[:instrument_id])
+  end
+
+  def update
+    @booking.update(booking_params)
+    redirect_to dashboard_path, notice: 'Booking status was successfully updated.'
+  end
+
   def destroy
     @booking.destroy
     redirect_to instruments_path, notice: 'Booking was successfully canceled.'
@@ -40,6 +49,6 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:check_in_date, :check_out_date, :rental_price_total,
-                                    :rental_fees, :transfer_date)
+                                    :rental_fees, :transfer_date, :status)
   end
 end
