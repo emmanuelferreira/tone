@@ -52,7 +52,7 @@
             <% if booking.instrument.photo.attached? %>
               <%= cl_image_tag booking.instrument.photo.key, width: 160, crop: :fill %>
             <% else %>
-              <%= image_tag instrument.img_url %>
+              <%= image_tag booking.instrument.img_url %>
             <% end %>
           <div class="card-body flex-row">
             <h2 class="card-title d-flex justify-content-start"><%= booking.instrument.title %></h2>
@@ -80,7 +80,7 @@
             <% if booking.instrument.photo.attached? %>
               <%= cl_image_tag booking.instrument.photo.key, width: 160, crop: :fill %>
             <% else %>
-              <%= image_tag instrument.img_url %>
+              <%= image_tag booking.instrument.img_url %>
             <% end %>
             <div class="card-body flex-row">
               <h2 class="card-title d-flex justify-content-start"><%= booking.instrument.title %></h2>
@@ -109,7 +109,7 @@
             <% if booking.instrument.photo.attached? %>
               <%= cl_image_tag booking.instrument.photo.key, width: 160, crop: :fill %>
             <% else %>
-              <%= image_tag instrument.img_url %>
+              <%= image_tag booking.instrument.img_url %>
             <% end %>
             <div class="card-body flex-row">
               <h2 class="card-title d-flex justify-content-start"><%= booking.instrument.title %></h2>
