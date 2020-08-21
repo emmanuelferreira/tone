@@ -1,9 +1,10 @@
 class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
-
-
   def index
+    if params[:query].present?
+      @instruments = Instrument.geocoded.where("category ILIKE ?", "%#{params[:query]}%")
+    else
       @instruments = Instrument.geocoded
       @markers = @instruments.map do |instrument|
         {
@@ -13,16 +14,17 @@ class InstrumentsController < ApplicationController
           image_url: helpers.asset_url('logo-black.png')
         }
       end
+    end
   end
 
   def show
     @booking = Booking.new
     @markers = [{
-          lat: @instrument.latitude,
-          lng: @instrument.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { instrument: @instrument }),
-          image_url: helpers.asset_url('logo-black.png')
-        }]
+      lat: @instrument.latitude,
+      lng: @instrument.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { instrument: @instrument }),
+      image_url: helpers.asset_url('logo-black.png')
+    }]
     # @bookings = Booking.where(instrument_id: @instrument.id)
     @reviews = @instrument.reviews
   end
@@ -35,7 +37,7 @@ class InstrumentsController < ApplicationController
     @user = current_user
     @instrument = Instrument.new(instrument_params)
     @instrument.user = @user
-    if @instrument.save!
+    if @instrument.save
       redirect_to instrument_path(@instrument)
     else
       render :new
