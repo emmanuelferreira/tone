@@ -25,7 +25,7 @@
           <% if instrument.photo.attached? %>
             <%= cl_image_tag instrument.photo.key, width: 160, crop: :fill %>
           <% else %>
-            <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
+            <%= image_tag instrument.img_url %>
           <% end %>
         <div class="card-body flex-row">
           <h2 class="card-title d-flex justify-content-start"><%= instrument.title %></h2>
@@ -52,7 +52,7 @@
             <% if booking.instrument.photo.attached? %>
               <%= cl_image_tag booking.instrument.photo.key, width: 160, crop: :fill %>
             <% else %>
-              <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
+              <%= image_tag instrument.img_url %>
             <% end %>
           <div class="card-body flex-row">
             <h2 class="card-title d-flex justify-content-start"><%= booking.instrument.title %></h2>
@@ -80,7 +80,7 @@
             <% if booking.instrument.photo.attached? %>
               <%= cl_image_tag booking.instrument.photo.key, width: 160, crop: :fill %>
             <% else %>
-              <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
+              <%= image_tag instrument.img_url %>
             <% end %>
             <div class="card-body flex-row">
               <h2 class="card-title d-flex justify-content-start"><%= booking.instrument.title %></h2>
@@ -109,7 +109,7 @@
             <% if booking.instrument.photo.attached? %>
               <%= cl_image_tag booking.instrument.photo.key, width: 160, crop: :fill %>
             <% else %>
-              <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
+              <%= image_tag instrument.img_url %>
             <% end %>
             <div class="card-body flex-row">
               <h2 class="card-title d-flex justify-content-start"><%= booking.instrument.title %></h2>
