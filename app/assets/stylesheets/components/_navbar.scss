@@ -2,11 +2,11 @@
   justify-content: space-between;
   background-color: transparent;
   transition: 0.5s background-color ease;
-  
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-lewagon-white {
-  background-color:  #0b2325;
+  background-color: #0b2325;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -17,7 +17,11 @@
   width: 40px;
 }
 
-.nav-link{
+.nav-link {
   color: #fcfaf1;
 }
 
+.nav-link:hover {
+  color: #5e7a85;
+  opacity: 0.9;
+}
