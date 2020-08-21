@@ -9,8 +9,8 @@ flatpickr("#check_in_date", {
 });
 
 const dateValidation = () => {
-  const startDateInput = document.getElementById('booking_start_date');
-  const endDateInput = document.getElementById('booking_end_date');
+  const startDateInput = document.getElementById('check_in_date');
+  const endDateInput = document.getElementById('check_out_date');
 
   if (startDateInput) {
     const unavailableDates = JSON.parse(document.querySelector('#instrument-booking-dates').dataset.unavailable)
