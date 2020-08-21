@@ -1,4 +1,4 @@
-<div class="container show">
+<div class="container funky-town" >
 
   <div class="title">
       <h2 id="title-show"><em><%= @instrument.title %> </em></h2>
@@ -32,33 +32,28 @@
 
     <div class="w-100"></div>
 
+    <div class="col">
+      <div class="sub-container-show space-between" id="map-review">
+      <div class="container-map" id="map"
+      # style="width: 100%; height: 500px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
 
-  <div class="sub-container-show space-between" id="map-review">
-    <div class="container-map" id="map"
-    style="width: 80%; height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-    <div class="container-review">
-      <h1 id="title-review">Reviews</h1>
-
-      <div class="container-reviews">
-
-        <% @reviews.each do |review| %>
-
-          <div class="notification">
-            <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
-
-            <div class="card-body flex-row">
-              <p class="card-text"><%= review.rating %> /5</p>
-              <p class="card-text"><%= review.created_at %></p>
-              <p class="card-text"><%= review.comment %></p>
+    <div class="col reviews">
+        <h2 id="title-review">Reviews</h2>
+        <div class="container-reviews">
+          <% @reviews.each do |review| %>
+            <div class="notification">
+              <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+              <div class="card-body flex-row">
+                <p class="card-text"><%= review.rating %> /5</p>
+                <p class="card-text"><%= review.created_at %></p>
+                <p class="card-text"><%= review.comment %></p>
+              </div>
             </div>
-          </div>
-        <% end %>
-
+          <% end %>
       </div>
-
     </div>
   </div>
 </div>
