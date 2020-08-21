@@ -1,40 +1,35 @@
+<div class="container show">
 
-<div class="container" id="instrument">
-
-  <div class="sub-container-show" id="title-infos">
-
-    <div class="container-title">
-      <h1 id="title-show"><em><%= @instrument.title %> </em></h1>
+  <div class="title">
+      <h2 id="title-show"><em><%= @instrument.title %> </em></h2>
     </div>
     <div class="container-address-price">
         <p><%= @instrument.pickup_address %></p>
         <p id="price"><%= @instrument.price_per_day %> CHF</p>
     </div>
 
-
-  </div>
-
-  <div class="sub-container-show space-between" id="container-img-description">
-
-    <div class="container-img">
-      <% if @instrument.photo.attached? %>
-        <%= cl_image_tag @instrument.photo.key, width: 300, crop: :fill %>
-          <% else %>
-        <%= image_tag "#{@instrument.img_url}" %>
-      <% end %>
-    </div>
-    <div class="container-date-description">
-      <div class="container-instrument-description">
-        <h1 id="title-description">Description</h1>
-        <h3 id="description-details"><%= @instrument.description %></h3>
+  <div class="row">
+    <div class="col">
+      <div class="lt-description col">
+        <h2 id="title-description">Description</h2>
+        <p id="description-details"><%= @instrument.description %></p>
       </div>
       <div class="container-booking-pickr">
         <%= render 'shared/booking_form', instrument: @instrument %>
-
       </div>
     </div>
 
-  </div>
+    <div class="col">
+      <div class="lt-pic col">
+      <% if @instrument.photo.attached? %>
+        <%= cl_image_tag @instrument.photo.key %>
+      <%  else %>
+        <%= image_tag "#{@instrument.img_url}" %>
+      <% end %>
+    </div>
+    </div>
+
+    <div class="w-100"></div>
 
 
   <div class="sub-container-show space-between" id="map-review">
@@ -62,7 +57,7 @@
         <% end %>
 
       </div>
+
     </div>
   </div>
 </div>
-

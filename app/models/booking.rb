@@ -3,8 +3,13 @@ class Booking < ApplicationRecord
   belongs_to :user
   has_many :reviews, dependent: :destroy
   validates :status, inclusion: { in: %w(accepted pending declined) }
+
   validates :check_in_date, :check_out_date, presence: true
   validate :check_out_date_after_check_in_date
+
+  def self.status
+    %w(accepted pending declined)
+  end
 
 
 private
@@ -15,4 +20,3 @@ private
     end
   end
 end
-

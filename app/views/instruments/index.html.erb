@@ -1,5 +1,5 @@
 <div class="container d-flex">
-  <div class="container">
+  <div class="container justify-content-center">
     <div class="d-flex flex-column justify-content-md-center">
       <% @instruments.each do |instrument| %>
       <div class="card-product col col-sm-10">
@@ -13,7 +13,6 @@
           <h3 class="card-price d-flex justify-content-end"><%= instrument.price_per_day %>CHF</h3>
           <p class="card-text"><%= instrument.pickup_address %></p>
           <%= link_to '', instrument_path(instrument) %>
-
         </div>
       </div>
         <% end %>

@@ -9,7 +9,6 @@ class Instrument < ApplicationRecord
   validates :price_per_day, numericality: { greater_than_or_equal_t: 1 }
   after_validation :geocode, if: :will_save_change_to_pickup_address?
 
-
   def available?(check_in_date, check_out_date)
     bookings.each do |booking|
       if booking.check_in_date > check_out_date || booking.check_out_date < check_in_date

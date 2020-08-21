@@ -20,6 +20,9 @@
                     autofocus: true,
                     input_html: { autocomplete: "email" } %>
           </div>
+          <div class="form-group">
+            <%= f.input :photo, as: :file %>
+          </div>
         </div>
         <div class="form-group">
           <%= f.input :password,
