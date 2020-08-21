@@ -6,14 +6,14 @@
         <% if instrument.photo.attached? %>
           <%= cl_image_tag instrument.photo.key, width: 160, crop: :fill %>
         <% else %>
-          <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
+          <%= image_tag "#{@instrument.img_url}" %>
         <% end %>
         <div class="card-body flex-row">
           <h2 class="card-title d-flex justify-content-start"><%= instrument.title %></h2>
           <h3 class="card-price d-flex justify-content-end"><%= instrument.price_per_day %>CHF</h3>
           <p class="card-text"><%= instrument.description %></p>
           <%= link_to '', instrument_path(instrument) %>
-          
+
         </div>
       </div>
         <% end %>
