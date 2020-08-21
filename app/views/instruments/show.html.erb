@@ -19,8 +19,8 @@
     <div class="container-img">
       <% if @instrument.photo.attached? %>
         <%= cl_image_tag @instrument.photo.key, width: 300, crop: :fill %>
-      <% else %>
-        <%= image_tag 'https://images.unsplash.com/photo-1466232373731-46205f0b668e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' %>
+      <% <% else %> %>
+        <%= image_tag "#{@instrument.img_url}" %>
       <% end %>
     </div>
     <div class="container-date-description">
