@@ -4,7 +4,7 @@
       <% @instruments.each do |instrument| %>
       <div class="card-product col col-sm-10">
         <% if instrument.photo.attached? %>
-          <%= cl_image_tag instrument.photo.key, width: 160, crop: :fill %>
+          <%= cl_image_tag instrument.photo.key%>
         <% else %>
           <%= image_tag instrument.img_url %>
         <% end %>
@@ -15,7 +15,7 @@
           <%= link_to '', instrument_path(instrument) %>
         </div>
       </div>
-        <% end %>
+      <% end %>
       </div>
   </div>
   <div class="col col-lg-5" id="map"
