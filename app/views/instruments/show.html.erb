@@ -4,7 +4,7 @@
       <h2 id="title-show"><em><%= @instrument.title %> </em></h2>
     </div>
     <div class="container-address-price">
-        <p><%= @instrument.pickup_address %></p>
+        <h6 class="book"><%= @instrument.pickup_address %></h6>
         <p id="price"><%= @instrument.price_per_day %> CHF</p>
     </div>
 
@@ -40,19 +40,27 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
 
-    <div class="col reviews">
+    <div class="col funky">
         <h2 id="title-review">Reviews</h2>
-        <div class="container-reviews">
-          <% @reviews.each do |review| %>
-            <div class="notification">
-              <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
-              <div class="card-body flex-row">
-                <p class="card-text"><%= review.rating %> /5</p>
-                <p class="card-text"><%= review.created_at %></p>
-                <p class="card-text"><%= review.comment %></p>
+      <div class="">   
+          <div class="container-reviews">
+            <% @reviews.each do |review| %>
+              <div class="notification">
+                <div class="avatar-large">
+                  <% if current_user.photo.attached? %>
+                  <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, crop: :fill %>
+                <% else %>
+                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/maximepersonnic", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% end %>
+                </div>
+                <div class="card-body flex-row">
+                  <p class="ratings"><%= review.rating %> /5</p>
+                  <p class="created"><%= review.created_at %></p>
+                  <p class="reviews-comment"><%= review.comment %></p>
+                </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+        </div>
       </div>
     </div>
   </div>
