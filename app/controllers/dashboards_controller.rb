@@ -1,5 +1,4 @@
 class DashboardsController < ApplicationController
-
   def summary
     @user = current_user
     @instruments = Instrument.where(user: @user)

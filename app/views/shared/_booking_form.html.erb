@@ -1,16 +1,39 @@
 
-  <div id="bookings-form">
-    <div class="bookings-form-title">
-      <h6>Book now!</h6>
-    </div>
+<% if user_signed_in? %>
+  <% if current_user.id != @instrument.user_id  %>
+    <div id="bookings-form">
+      <div class="bookings-form-title">
+        <h6>Book now!</h6>
+      </div>
 
+        <div id='instrument-booking-dates' data-unavailable="<%= @instrument.unavailable_dates.to_json %>">
+            <%= simple_form_for [@instrument, @booking] do |f| %>
+              <%= f.input :check_in_date, as: :string, type: :text, required: false, input_html: {id: "check_in_date"} %>
+              <%= f.input :check_out_date, as: :string, type: :text,  required: false, input_html: {id: "check_out_date"} %>
+              <%= f.button :submit, "Send request", class: "btn btn-success" %>
+            <% end %>
+        </div>
+    </div>
+  <% else %>
+    <div id='instrument-booking-dates' data-unavailable="<%= @instrument.unavailable_dates.to_json %>">
+      <p>Checkout your instrument details:</p>
+      <%= link_to "Dashboard", dashboard_path, class: "btn btn-success"  %>
+    </div>
+  <% end %>
+<% else %>
+  <div id="bookings-form">
+      <div class="bookings-form-title">
+        <h6>Book now!</h6>
+      </div>
       <div id='instrument-booking-dates' data-unavailable="<%= @instrument.unavailable_dates.to_json %>">
-        <% if @instrument.user_id  %>
-          <%= simple_form_for [@instrument, @booking] do |f| %>
-            <%= f.input :check_in_date, as: :string, required: false, input_html: {id: "check_in_date"} %>
-            <%= f.input :check_out_date, as: :string, required: false, input_html: {id: "check_out_date"} %>
-            <%= f.button :submit, "Request", class: "btn btn-success" %>
-          <% end %>
+
+        <%= simple_form_for [@instrument, @booking] do |f| %>
+          <%= f.input :check_in_date, as: :string, type: :text, required: false, input_html: {id: "check_in_date"} %>
+          <%= f.input :check_out_date, as: :string, type: :text,  required: false, input_html: {id: "check_out_date"} %>
+          <%= f.button :submit, "Send request", class: "btn btn-success" %>
         <% end %>
       </div>
-  </div>
+    </div>
+  <% end %>
+
+
