@@ -30,7 +30,7 @@
         <%= simple_form_for [@instrument, @booking] do |f| %>
           <%= f.input :check_in_date, as: :string, type: :text, required: false, input_html: {id: "check_in_date"} %>
           <%= f.input :check_out_date, as: :string, type: :text,  required: false, input_html: {id: "check_out_date"} %>
-          <%= f.button :submit, "Send request", class: "btn btn-success" %>
+          <%= f.button :submit, "Request", class: "btn btn-success" %>
         <% end %>
       </div>
     </div>
