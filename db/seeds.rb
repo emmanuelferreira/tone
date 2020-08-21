@@ -55,7 +55,7 @@ puts "Creating instruments..."
 
 booking = Booking.new(
   instrument_id: Instrument.first.id,
-  user_id:  User.last.id,
+  user_id:  User.first.id + 1,
   check_in_date: Date.today - 15,
   check_out_date: Date.today - 12,
   rental_price_total: 30,
