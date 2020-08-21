@@ -137,14 +137,14 @@
 //   font-size: 20px;
 // }
 
-.show {
-  padding: 32px;
-  background-color: #5e7a85;
+.funky-town {
+  // padding: 32px;
+  // background-color: #5e7a85;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.show:hover {
+.funky-town:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
@@ -152,13 +152,15 @@
   text-align: left;
 }
 
-.lt-pic img {
-  object-fit: cover;
-  width: 500px;
-  height: 500px;
-  background-color: #5e7a85;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+.lt-pic {
+  img {
+    object-fit: cover;
+    width: 500px;
+    height: 500px;
+    -colorbackground: #5e7a85;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
 }
 
 .lt-pic:hover img {
@@ -167,8 +169,15 @@
 
 #title-show h1 {
   text-align: left;
+  padding-left: 16px;
 }
 
-.container-reviews {
-  background-color: #5e7a85;
+// .reviews {
+//   background-color: #5e7a85;
+// }
+
+.container-booking-pickr {
+  width: 200px;
+  padding-left: 16px;
+  padding-bottom: 8px;
 }
