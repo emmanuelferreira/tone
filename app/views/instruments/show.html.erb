@@ -19,7 +19,7 @@
     <div class="container-img">
       <% if @instrument.photo.attached? %>
         <%= cl_image_tag @instrument.photo.key, width: 300, crop: :fill %>
-      <% <% else %> %>
+      <% else %>
         <%= image_tag "#{@instrument.img_url}" %>
       <% end %>
     </div>

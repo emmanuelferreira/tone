@@ -62,12 +62,9 @@
           </div>
           <div class="row text-right mb-3">
             <div class="col">
-              <%= link_to "Accept/Decline", edit_instrument_booking_path(booking), class: "btn btn-success btn-sm" %>
-              <button class="btn btn-success btn-sm" id="accept-button">Accept</button>
+              <%= link_to "Review", edit_booking_path(booking), class: "btn btn-success btn-sm" %>
             </div>
-            <div class="col">
-              <button class="btn btn-success btn-sm" id="decline-button">Decline</button>
-            </div>
+
           </div>
           </div>
           <% end %>

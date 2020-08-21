@@ -7,6 +7,10 @@ class Booking < ApplicationRecord
   validates :check_in_date, :check_out_date, presence: true
   validate :check_out_date_after_check_in_date
 
+  def self.status
+    %w(accepted pending declined)
+  end
+
 
 private
   def check_out_date_after_check_in_date

@@ -1,7 +1,7 @@
 
 
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :destroy, :edit, :update]
+  before_action :set_booking, only: [:show, :destroy]
 
   def show
   end
@@ -28,10 +28,11 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    @instrument = Instrument.find(params[:instrument_id])
+    @booking = Booking.find(params[:id])
   end
 
   def update
+    @booking = Booking.find(params[:id])
     @booking.update(booking_params)
     redirect_to dashboard_path, notice: 'Booking status was successfully updated.'
   end
