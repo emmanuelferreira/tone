@@ -1,54 +1,49 @@
+<div class="container show">
 
-<div class="container" id="instrument">
-
-  <div class="sub-container-show" id="title-infos">
-
-    <div class="container-title">
-      <h1 id="title-show"><em><%= @instrument.title %> </em></h1>
+  <div class="title">
+      <h2 id="title-show"><em><%= @instrument.title %> </em></h2>
     </div>
     <div class="container-address-price">
         <p><%= @instrument.pickup_address %></p>
         <p id="price"><%= @instrument.price_per_day %> CHF</p>
     </div>
 
-
-  </div>
-
-  <div class="sub-container-show space-between" id="container-img-description">
-
-    <div class="container-img">
-      <% if @instrument.photo.attached? %>
-        <%= cl_image_tag @instrument.photo.key, width: 300, crop: :fill %>
-      <% <% else %> %>
-        <%= image_tag "#{@instrument.img_url}" %>
-      <% end %>
-    </div>
-    <div class="container-date-description">
-      <div class="container-instrument-description">
-        <h1 id="title-description">Description</h1>
-        <h3 id="description-details"><%= @instrument.description %></h3>
+  <div class="row">
+    <div class="col">
+      <div class="lt-description col">
+        <h2 id="title-description">Description</h2>
+        <p id="description-details"><%= @instrument.description %></p>
       </div>
       <div class="container-booking-pickr">
         <%= render 'shared/booking_form', instrument: @instrument %>
-
       </div>
     </div>
 
-  </div>
+    <div class="col">
+      <div class="lt-pic col">
+      <% if @instrument.photo.attached? %>
+        <%= cl_image_tag @instrument.photo.key %>
+      <%  else %>
+        <%= image_tag "#{@instrument.img_url}" %>
+      <% end %>
+    </div>
+    </div>
 
+    <div class="w-100"></div>
 
-  <div class="sub-container-show space-between" id="map-review">
-    <div class="container-map" id="map"
-              style="width: 80%; height: 600px;"
+    <div class="col">
+      <div class="map-show col justify-content-md-center" id="map"
+              style="width: 500px; height: 500px;"
               data-markers="<%= @markers.to_json %>"
-              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
 
-    <div class="container-review">
-      <h1 id="title-review">Reviews</h1>
-
+    <div class="reviews col">
+      <h2 id="title-review">Reviews</h2>
         <div class="container-reviews">
           <div class="notification">
-          <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+          <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large justify-content-end"/>
           <div class="notification-content">
             <p><small>9th January</small></p>
             <p><strong>Je vends une 306 décapotable, mp si intéressé</strong></p>
@@ -58,94 +53,6 @@
             <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
             <a href="#">Delete <i class="far fa-trash-alt"></i></a>
           </div>
-        </div>
-
-        <div class="notification">
-          <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
-          <div class="notification-content">
-            <p><small>9th January</small></p>
-            <p><strong>Lourd de fou gros</strong></p>
-          </div>
-
-          <div class="notification-actions">
-            <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-            <a href="#">Delete <i class="far fa-trash-alt"></i></a>
-          </div>
-        </div>
-
-        <div class="notification">
-          <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
-          <div class="notification-content">
-          <p><small>9th January</small></p>
-          <p><strong>Pas ouf mais tranquille on est ensemble</strong></p>
-        </div>
-
-        <div class="notification-actions">
-          <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-          <a href="#">Delete <i class="far fa-trash-alt"></i></a>
-        </div>
-        </div>
-
-      </div>
-
-
-      <!-- <div class="notification">
-        <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
-        <div class="notification-content">
-          <p><small>9th January</small></p>
-          <p><strong>Je vends une 306 décapotable, mp si intéressé</strong></p>
-        </div>
-
-        <div class="notification-actions">
-          <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-          <a href="#">Delete <i class="far fa-trash-alt"></i></a>
-        </div>
-      </div>
-
-      <div class="notification">
-        <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
-        <div class="notification-content">
-          <p><small>9th January</small></p>
-          <p><strong>Lourd de fou gros</strong></p>
-        </div>
-
-        <div class="notification-actions">
-          <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-          <a href="#">Delete <i class="far fa-trash-alt"></i></a>
-        </div>
-      </div>
-
-      <div class="notification">
-        <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
-        <div class="notification-content">
-        <p><small>9th January</small></p>
-        <p><strong>Pas ouf mais tranquille on est ensemble</strong></p>
-      </div>
-
-      <div class="notification-actions">
-        <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-        <a href="#">Delete <i class="far fa-trash-alt"></i></a>
-      </div>
-      </div> -->
     </div>
-
-
-<!--
-      <div class="notification">
-        <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
-        <div class="notification-content">
-        <p><small>9th January</small></p>
-        <p><strong>Mamene</strong></p>
-      </div>
-
-      <div class="notification-actions">
-        <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-        <a href="#">Delete <i class="far fa-trash-alt"></i></a>
-      </div>
-      </div>
-    </div> -->
-
-
   </div>
 </div>
-
