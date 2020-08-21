@@ -84,7 +84,7 @@ puts "Creating instruments..."
     price_per_day: 20,
     description: "An ideal flute for students and beginners.
 An excellent value in flute, Squier's Affinity Series are ideal for players who are just getting started, with solid construction and electronics. This Affinity Series Telecaster provides all the you want from a Tele, along with a smooth-playing Indian laurel fretboard and the ease and convenience of a top-loading bridge. Now available in this limited-edition finish. Case sold separately. Start with a real Telecaster. Order your special-edition Affinity Tele today.",
-    title: "Enchanté to rent my awesome flute ",
+    title: "Awesome flute ",
     img_url: "https://images.unsplash.com/photo-1567184406952-9f6ba54cb614?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
   )
 
@@ -291,3 +291,25 @@ user = User.new(
     img_url: "https://images.unsplash.com/photo-1576487236230-eaa4afe9b453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60"
   )
   instrument.save!
+
+  booking = Booking.new(
+  instrument_id: Instrument.find_by(title: "The perfect guitar ever").id,
+  user_id:  User.first.id,
+  check_in_date: Date.today + 4,
+  check_out_date: Date.today + 13,
+  rental_price_total: 30,
+  status: 'pending'
+)
+booking.save!
+
+booking = Booking.new(
+  instrument_id: Instrument.first.id,
+  user_id:  User.last.id,
+  check_in_date: Date.today + 5,
+  check_out_date: Date.today + 17,
+  rental_price_total: 120,
+  status: 'pending'
+)
+booking.save!
+
+
