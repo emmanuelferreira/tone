@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resources :bookings, only: [:show, :destroy, :edit, :update ] do
     resources :reviews, only: [:index, :new, :create]
   end
-
   resources :reviews, only: [ :show, :destroy ]
   get "dashboard", to: "dashboards#summary"
   get "profile", to: "profiles#overview"

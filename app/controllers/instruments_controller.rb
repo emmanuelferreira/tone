@@ -23,6 +23,8 @@ class InstrumentsController < ApplicationController
           infoWindow: render_to_string(partial: "info_window", locals: { instrument: @instrument }),
           image_url: helpers.asset_url('logo-black.png')
         }]
+    # @bookings = Booking.where(instrument_id: @instrument.id)
+    @reviews = @instrument.reviews
   end
 
   def new
