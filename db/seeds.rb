@@ -9,15 +9,24 @@
 require "faker"
 
 puts "Cleaning database..."
+Booking.destroy_all
 User.destroy_all
-# Instrument.destroy_all
-# Booking.destroy_all
+
 
 
 puts "Creating 1 user..."
 user = User.new(
   username: "emmanuel19",
   email: "emmanuel@gmail.com",
+  password: '123456'
+)
+  user.save!
+puts "Finished with the user 1 creation!"
+
+puts "Creating 1 user..."
+user = User.new(
+  username: "morgan",
+  email: "morgan@gmail.com",
   password: '123456'
 )
   user.save!
@@ -47,8 +56,8 @@ puts "Creating instruments..."
 booking = Booking.new(
   instrument_id: Instrument.first.id,
   user_id:  User.last.id,
-  check_in_date: Date.today( (-15).day ),
-  check_out_date: Date.today( (-12).day ),
+  check_in_date: Date.today - 15,
+  check_out_date: Date.today - 12,
   rental_price_total: 30,
   status: 'accepted'
 )
@@ -60,25 +69,16 @@ booking = Booking.new(
   check_in_date: Date.today + 5,
   check_out_date: Date.today + 17,
   rental_price_total: 120,
-  status: 'accepted'
+  status: 'pending'
 )
 booking.save!
 
 
 
-puts "Creating 1 user..."
-user = User.new(
-  username: "morgan",
-  email: "morgan@gmail.com",
-  password: '123456'
-)
-  user.save!
-puts "Finished with the user 1 creation!"
-
 
 puts "Creating instruments..."
   instrument = Instrument.new(
-    user_id: User.first.id,
+    user_id: User.last.id,
     pickup_address: "Rue de Genève, Lausanne, Vaud, Suisse",
     category: "flute",
     price_per_day: 20,

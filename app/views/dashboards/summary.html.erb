@@ -47,6 +47,7 @@
     <!--------------------------Booking Requests-------------------------------- -->
       <div class="tab-pane fade" id="booking-request" role="tabpanel" aria-labelledby="booking-request-tab">
         <% @bookings_received.each do |booking| %>
+          <% if booking.status == "pending" %>
           <div class="card-product col col-sm-10">
             <% if booking.instrument.photo.attached? %>
               <%= cl_image_tag booking.instrument.photo.key, width: 160, crop: :fill %>
@@ -68,6 +69,7 @@
             </div>
           </div>
           </div>
+          <% end %>
         <% end %>
       </div>
 

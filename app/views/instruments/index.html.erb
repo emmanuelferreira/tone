@@ -6,12 +6,12 @@
         <% if instrument.photo.attached? %>
           <%= cl_image_tag instrument.photo.key, width: 160, crop: :fill %>
         <% else %>
-          <%= image_tag "#{@instrument.img_url}" %>
+          <%= image_tag instrument.img_url %>
         <% end %>
         <div class="card-body flex-row">
           <h2 class="card-title d-flex justify-content-start"><%= instrument.title %></h2>
           <h3 class="card-price d-flex justify-content-end"><%= instrument.price_per_day %>CHF</h3>
-          <p class="card-text"><%= instrument.description %></p>
+          <p class="card-text"><%= instrument.pickup_address %></p>
           <%= link_to '', instrument_path(instrument) %>
 
         </div>
